@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   end
 end
 
-# Rails.application.routes.draw do
-#   resources :groups do
-#     resources :podcasts
-#   end
-# end
+Rails.application.routes.draw do
+  resources :groups do
+    resources :usergroups
+  end
+end
 
