@@ -1,4 +1,3 @@
-# spec/requests/users_spec.rb
 require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
@@ -53,7 +52,7 @@ RSpec.describe 'Users API', type: :request do
   # Test suite for POST /users
   describe 'POST /users' do
     # valid payload
-    let(:valid_attributes) { { name: 'Learn Elm', email: '1' } }
+    let(:valid_attributes) { { name: 'Learn Elm', email: 'hellohello' } }
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }

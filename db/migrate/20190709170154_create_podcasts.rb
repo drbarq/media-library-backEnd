@@ -6,7 +6,6 @@ class CreatePodcasts < ActiveRecord::Migration[5.2]
       t.string :url
       t.string :comment
       t.references :user, foreign_key: true
-      t.references :group, foreign_key: true
 
       t.timestamps
     end

@@ -1,9 +1,7 @@
 class Podcast < ApplicationRecord
-  # model association
+  #model assocations
   belongs_to :user
-  belongs_to :group
 
-  # validation 
-  validates_presence_of :title, :url, :author, :comment
-
+  #validations
+  validates_presence_of :title, :author, :url, :comment
 end
