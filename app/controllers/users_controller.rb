@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :update, :destroy]
+    before_action :set_user, only: [:show, :update, :destroy, :podcasts, :groups]
 
   # GET /users
   def index
@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.create!(user_params)
-    json_response(@user, :created)
+    @user = User.create(user_params)
+    json_response(@user)
   end
 
   # GET /users/:id
@@ -21,14 +21,21 @@ class UsersController < ApplicationController
   # PUT /users/:id
   def update
     @user.update(user_params)
-    head :no_content
   end
 
   # DELETE /users/:id
   def destroy
     @user.destroy
-    head :no_content
   end
+
+# # Custom Routes # #
+  def podcasts 
+    json_response(@user.podcasts)
+  end 
+
+  def groups 
+    json_response(@user.groups)
+  end 
 
   private
 
