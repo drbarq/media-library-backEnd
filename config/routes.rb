@@ -3,6 +3,7 @@
 # end
 
 Rails.application.routes.draw do
+  root  'groups#index' 
   resources :users, :groups, :podcasts
   get '/groups/:id/podcasts', to:'groups#podcasts', as: 'group_podcasts'
   get '/groups/:id/users', to:'groups#users', as: 'group_users'
