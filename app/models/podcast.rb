@@ -3,5 +3,5 @@ class Podcast < ApplicationRecord
   belongs_to :user
 
   #validations
-  validates_presence_of :title, :author, :url, :comment
+  validates_presence_of :episodeName, :showName, :url, :comment
 end

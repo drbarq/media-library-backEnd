@@ -58,7 +58,7 @@ RSpec.describe 'Podcasts API' do
       end
 
       it 'returns a not found message' do
-        # expect(response.body).to match(/Validation failed: Title can't be blank, Author can't be blank, Url can't be blank, Comment can't be blank/)
+        # expect(response.body).to match(/Validation failed: episodeName can't be blank, showName can't be blank, Url can't be blank, Comment can't be blank/)
         expect(response.body).to match(/Couldn't find Podcast /)
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe 'Podcasts API' do
 
   # Test suite for PUT /users/:user_id/podcast
   describe 'POST /users/:user_id/podcasts' do
-    let(:valid_attributes) { { title: 'Visit Narnia', author: 'joe', url: 'www.hello.com', comment: 'so sick' } }
+    let(:valid_attributes) { { episodeName: 'Visit Narnia', showName: 'joe', url: 'www.hello.com', comment: 'so sick' } }
 
     context 'when request attributes are valid' do
       before { post "/users/#{user_id}/podcasts", params: valid_attributes }
@@ -84,14 +84,14 @@ RSpec.describe 'Podcasts API' do
       end
 
       it 'returns a failure message' do
-        expect(response.body).to match(/Validation failed: Title can't be blank, Author can't be blank, Url can't be blank, Comment can't be blank/)
+        expect(response.body).to match(/Validation failed: episodeName can't be blank, showName can't be blank, Url can't be blank, Comment can't be blank/)
       end
     end
   end
 
   # Test suite for PUT /users/:user_id/podcasts/:id
   describe 'PUT /users/:user_id/podcasts/:id' do
-    let(:valid_attributes) { { title: 'Mozart' } }
+    let(:valid_attributes) { { episodeName: 'Mozart' } }
 
     before { put "/users/#{user_id}/podcasts/#{id}", params: valid_attributes }
 
@@ -102,7 +102,7 @@ RSpec.describe 'Podcasts API' do
 
       it 'updates the podcast' do
         updated_podcast = Podcast.find(id)
-        expect(updated_podcast.title).to match(/Mozart/)
+        expect(updated_podcast.episodeName).to match(/Mozart/)
       end
     end
 
