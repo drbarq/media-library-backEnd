@@ -26,7 +26,7 @@ class PodcastsController < ApplicationController
 
     def podcast_params
       # whitelist params
-      params.permit(:episodeName, :showName, :url, :comment, :user_id)
+      params.permit(:episodeName, :showName, :url, :comment, :user_group_id)
     end
 
 end

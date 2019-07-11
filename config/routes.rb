@@ -4,7 +4,7 @@
 
 Rails.application.routes.draw do
   root  'groups#index' 
-  resources :users, :groups, :podcasts
+  resources :users, :groups, :podcasts, :user_group
   get '/groups/:id/podcasts', to:'groups#podcasts', as: 'group_podcasts'
   get '/groups/:id/users', to:'groups#users', as: 'group_users'
   get '/users/:id/podcasts', to:'users#podcasts', as: 'user_podcasts'

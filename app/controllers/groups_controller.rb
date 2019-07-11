@@ -33,7 +33,9 @@ class GroupsController < ApplicationController
     # Get Group Podcasts 
     def podcasts 
         podcastArray = []
-        @group.users.each{|user| user.podcasts.each{|podcast| podcastArray << podcast}}
+        @group.user_groups.each{|user_group| 
+            user_group.podcasts.each{|podcast| 
+                podcastArray << podcast}}
         json_response(podcastArray)
     end  
     
