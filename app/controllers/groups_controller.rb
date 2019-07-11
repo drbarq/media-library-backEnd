@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-    before_action :set_group, only: [:show, :update, :destroy, :podcasts, :users]
+    before_action :set_group, only: [:show, :update, :destroy, :podcasts, :users, :usergroups]
     
     # GET /groups
     def index
@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
         @group.destroy
     end
 
-    # # Custom Routesn # #
+    # # Custom Routes # #
 
     # Get Group Podcasts 
     def podcasts 
@@ -44,6 +44,17 @@ class GroupsController < ApplicationController
         # byebug
         json_response(@group.users)
     end 
+
+    def usergroups
+        # byebug
+        json_response(@group.user_groups)
+
+    end
+
+    # Get User_Groups 
+    def user_groups
+        
+    end
     
     private
     

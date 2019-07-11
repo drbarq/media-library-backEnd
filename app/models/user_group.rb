@@ -5,6 +5,6 @@ class UserGroup < ApplicationRecord
   has_many :podcasts
 
   #validations 
-  validates_presence_of :user, :group
+  validates_presence_of :user_id, :group_id
 end
 

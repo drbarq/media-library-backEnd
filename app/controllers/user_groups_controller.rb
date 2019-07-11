@@ -1,13 +1,17 @@
 class UserGroupsController < ApplicationController
-    before_action :set_user_group, only: [:update, :destroy]
+    before_action :set_user_group, only: [:update, :destroy, :show]
 
     def index
-        @user_groups = User_group.all
-        json_response(@user_groups)
+        @all_user_groups = UserGroup.all
+        json_response(@all_user_groups)
+    end 
+
+    def show 
+        json_response(@user_group)
     end 
 
     def create 
-        User_group.create(user_group_params)
+        UserGroup.create(user_group_params)
     end 
 
     def update 
@@ -20,8 +24,8 @@ class UserGroupsController < ApplicationController
 
     private
 
-    def set_podcast
-        @user_group = User_group.find(params[:id])
+    def set_user_group
+        @user_group = UserGroup.find(params[:id])
     end
 
     def user_group_params
