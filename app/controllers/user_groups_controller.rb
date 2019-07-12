@@ -11,7 +11,8 @@ class UserGroupsController < ApplicationController
     end 
 
     def create 
-        UserGroup.create(user_group_params)
+        @new = UserGroup.create(user_group_params)
+        json_response(@new)
     end 
 
     def update 

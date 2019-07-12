@@ -7,7 +7,8 @@ class PodcastsController < ApplicationController
     end 
 
     def create 
-        Podcast.create(podcast_params)
+        @new = Podcast.create(podcast_params)
+        json_response(@new)
     end 
 
     def update 
